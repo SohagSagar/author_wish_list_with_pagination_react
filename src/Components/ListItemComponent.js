@@ -1,11 +1,12 @@
 import React from 'react';
 
-const ListItemComponent = () => {
+const ListItemComponent = ({author}) => {
+    const {name,bio,link} = author;
     return (
-        <div class="card w-96 bg-base-100 border">
-            <div class="card-body">
-                <h2 class="text-center text-lg font-semibold">Author Details</h2><hr />
-                <div class="overflow-x-auto">
+        <div class="card w-[500px] bg-base-100 border">
+            <div class="card-body p-3">
+                <h2 class="text-center text-lg font-semibold p-0">Author Details</h2><hr />
+                
                     <table class="table w-full table-compact">
                         {/* <!-- head --> */} 
                         
@@ -14,20 +15,20 @@ const ListItemComponent = () => {
                             
                             <tr>
                                 <th>Name</th>
-                                <td>Cy Ganderton</td>
+                                <td>{name}</td>
                             </tr>
                             <tr>
                                 <th>Bio</th>
-                                <td>Cy Ganderton</td>
+                                <td><textarea defaultValue={bio} readOnly class="textarea w-full h-24 p-0 bg-transparent resize-none "></textarea></td>
                             </tr>
                             <tr>
                                 <th>Link</th>
-                                <td>Cy Ganderton</td>
+                                <td><a href={link} target='blank'>Details</a></td>
                             </tr>
                             
                         </tbody>
-                    </table>
-                </div>
+                    </table><hr />
+                
                 <div class="card-actions justify-center">
                     <button class="btn btn-sm bg-green-600 rounded-full normal-case text-white border-none">Add to favourite</button>
                 </div>
